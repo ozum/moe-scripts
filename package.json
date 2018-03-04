@@ -10,7 +10,7 @@
     "moe-scripts": "dist/index.js"
   },
   "scripts": {
-    "add-contributor": "node src contributors add",
+    "install": "cd ../.. && node_modules/.bin/moe-scripts init",
     "test": "node src test --watchAll",
     "test:update": "node src test --updateSnapshot",
     "build": "node src build --watch --source-maps --copy-files --out-dir dist",
