@@ -13,7 +13,7 @@
     "add-contributor": "node src contributors add",
     "test": "node src test --watchAll",
     "test:update": "node src test --updateSnapshot",
-    "build": "node src build --watch --source-maps --copy-files",
+    "build": "node src build --watch --source-maps --copy-files --out-dir dist",
     "lint": "node src lint",
     "format": "node src format",
     "validate": "node src validate",
