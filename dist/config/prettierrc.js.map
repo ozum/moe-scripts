@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/config/prettierrc.js"],"names":["module","exports","printWidth","trailingComma"],"mappings":"AAAAA,OAAOC,OAAP,GAAiB;AACfC,cAAY,GADG;AAEfC,iBAAe;AAFA,CAAjB","file":"prettierrc.js","sourcesContent":["module.exports = {\n  printWidth: 140,\n  trailingComma: \"all\"\n};\n"]}
