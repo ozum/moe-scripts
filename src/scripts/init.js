@@ -33,8 +33,8 @@ setPkg({
   "scripts.prepublishOnly": "npm run build",
 });
 
-// It is not necessary to create symlink of module directories beacuse, npm installs modules as a flat list,
-// so they are directly in node_modules of project: @types/jest, @types/node, prettier, ts-jest
+// It is not necessary to create symlink of module directories using createModuleSymLink("tslint"), because npm installs modules as a flat list,
+// so they are directly in node_modules of project: @types/jest, @types/node, prettier, ts-jest, eslint, tslint
 
 createFile(".env", "");
 createFile(".env.sample", "# Description\n# VAR='value'\n");
@@ -49,10 +49,8 @@ createFile(".huskyrc.js", 'module.exports = require("moe-scripts/husky.js");\n')
 // lint
 // Create node_modules/module symlink for IDE support and config file if not exists.
 if (isTypeScript) {
-  createModuleSymLink("tslint");
   writeJson("tslint.json", { extends: "moe-scripts/tslint-backend.json" });
 } else {
-  createModuleSymLink("eslint");
   writeJson(".eslintrc", { extends: "./node_modules/moe-scripts/eslint.js" });
 }
 
