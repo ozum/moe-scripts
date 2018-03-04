@@ -48,9 +48,8 @@ setPkg({
   "scripts.validate": "moe-scripts validate",
   "scripts.postversion": "git push && git push --tags && npm publish",
   "scripts.prepublishOnly": "npm run build"
-}); //mkdirp.sync("node_modules/@types");
-//createModuleSymLink("@types/jest");
-//createModuleSymLink("@types/node");
+}); // It is not necessary to create symlink of module directories beacuse, npm installs modules as a flat list,
+// so they are directly in node_modules of project: @types/jest, @types/node, prettier, ts-jest
 
 createFile(".env", "");
 createFile(".env.sample", "# Description\n# VAR='value'\n");
@@ -85,7 +84,5 @@ if (isTypeScript) {
 if (isTypeScript) {
   createSymLink(configFile("tsconfig/backend.json"), "tsconfig.json");
   createSymLink(configFile("tsconfig/backend-test.json"), "tsconfig-test.json");
-} // Format
-//createModuleSymLink("prettier");
-//createModuleSymLink("ts-jest");
+}
 //# sourceMappingURL=init.js.map
