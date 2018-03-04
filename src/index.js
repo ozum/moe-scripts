@@ -16,3 +16,5 @@ if (shouldThrow) {
 }
 
 require('./run-script')
+
+// TODO: Remove dist from .gitattributes, del src/jsdoc2md/ts-copy.json
