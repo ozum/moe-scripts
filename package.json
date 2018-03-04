@@ -16,8 +16,12 @@
     "build": "node src build --watch --source-maps --copy-files --out-dir dist",
     "lint": "node src lint",
     "format": "node src format",
-    "validate": "node src validate",
-    "precommit": "node src precommit"
+    "validate": "node src validate"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node src precommit"
+    }
   },
   "files": [
     "dist",
@@ -25,7 +29,9 @@
     "eslint.js",
     "config.js",
     "prettier.js",
-    "jest.js"
+    "jest.js",
+    "husky.js",
+    "tslint-backend.json"
   ],
   "keywords": [],
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
