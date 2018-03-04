@@ -5,13 +5,13 @@
   },
   "plugins": [
     "plugins/markdown",
-    "node_modules/moe-scripts/node_modules/jsdoc-babel"
+    "jsdoc-babel"
   ],
   "babel": {
     "extensions": ["ts", "tsx"],
     "ignore": ["**/*.(test|spec).ts"],
     "babelrc": false,
-    "presets": [["./node_modules/moe-scripts/node_modules/@babel/preset-env", { "targets": { "node": "current" } }], "./node_modules/moe-scripts/node_modules/@babel/preset-typescript"],
-    "plugins": ["./node_modules/moe-scripts/node_modules/@babel/plugin-proposal-class-properties", "./node_modules/moe-scripts/node_modules/@babel/plugin-proposal-object-rest-spread"]
+    "presets": [["@babel/env", { "targets": { "node": "current" } }], "@babel/typescript"],
+    "plugins": ["@babel/proposal-class-properties", "@babel/proposal-object-rest-spread"]
   }
 }

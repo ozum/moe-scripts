@@ -31,8 +31,7 @@ var parsedArgs = yargsParser(args, {
   array: ["target"]
 });
 var isCompiled = (parsedArgs.target || []).includes("compiled") || isTypeScript;
-var isBackend = !(parsedArgs.target || []).includes("frontend");
-var outDir = isBackend ? "lib" : "dist"; //const here = p => path.join(__dirname, p);
+var isBackend = !(parsedArgs.target || []).includes("frontend"); //const here = p => path.join(__dirname, p);
 
 var configFile = function (p) {
   return path.join(__dirname, "../config", p);
@@ -47,13 +46,12 @@ setPkg({
   "scripts.lint": "moe-scripts lint",
   "scripts.format": "moe-scripts format",
   "scripts.validate": "moe-scripts validate",
-  "scripts.precommit": "moe-scripts precommit",
   "scripts.postversion": "git push && git push --tags && npm publish",
   "scripts.prepublishOnly": "npm run build"
-});
-mkdirp.sync("node_modules/@types");
-createModuleSymLink("@types/jest");
-createModuleSymLink("@types/node");
+}); //mkdirp.sync("node_modules/@types");
+//createModuleSymLink("@types/jest");
+//createModuleSymLink("@types/node");
+
 createFile(".env", "");
 createFile(".env.sample", "# Description\n# VAR='value'\n");
 createSymLink(configFile(`gitignore/${gitignoreFile}`), ".gitignore", {
@@ -67,7 +65,8 @@ createFile("LICENSE", "");
 createFile("README.hbs", handlebars.compile(fs.readFileSync(configFile("readme.hbs"), {
   encoding: "utf8"
 }))(pkg));
-createFile(".prettierrc.js", 'module.exports = require("moe-scripts/.prettierrc.js");\n'); // lint
+createFile(".prettierrc.js", 'module.exports = require("moe-scripts/prettier.js");\n');
+createFile(".huskyrc.js", 'module.exports = require("moe-scripts/husky.js");\n'); // lint
 // Create node_modules/module symlink for IDE support and config file if not exists.
 
 if (isTypeScript) {
@@ -87,8 +86,6 @@ if (isTypeScript) {
   createSymLink(configFile("tsconfig/backend.json"), "tsconfig.json");
   createSymLink(configFile("tsconfig/backend-test.json"), "tsconfig-test.json");
 } // Format
-
-
-createModuleSymLink("prettier");
-createModuleSymLink("ts-jest");
+//createModuleSymLink("prettier");
+//createModuleSymLink("ts-jest");
 //# sourceMappingURL=init.js.map
