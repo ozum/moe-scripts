@@ -13,7 +13,7 @@ const useBuiltinConfig =
   !hasFile("tslint.json");
 
 const config = useBuiltinConfig
-  ? ["--config", hereRelative("../config/tslint/backend.json")]
+  ? ["--config", hereRelative("../../../tslint-backend.json")]
   : [];
 
 const filesGiven = parsedArgs._.length > 0;

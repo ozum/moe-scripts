@@ -20,7 +20,7 @@ var hereRelative = function (p) {
 
 var parsedArgs = yargsParser(args);
 var useBuiltinConfig = !args.includes("--config") && !hasFile("tslint.json");
-var config = useBuiltinConfig ? ["--config", hereRelative("../config/tslint/backend.json")] : [];
+var config = useBuiltinConfig ? ["--config", hereRelative("../../../tslint-backend.json")] : [];
 var filesGiven = parsedArgs._.length > 0;
 
 if (filesGiven) {
