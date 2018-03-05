@@ -36,7 +36,7 @@
     "tslint-backend.json"
   ],
   "keywords": [],
-  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
+  "author": "Mehmet Ozum Eldogan",
   "license": "MIT",
   "dependencies": {
     "@babel/cli": "^7.0.0-beta.40",
@@ -134,12 +134,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kentcdodds/moe-scripts.git"
+    "url": "ozum/moe-scripts"
   },
   "bugs": {
-    "url": "https://github.com/kentcdodds/moe-scripts/issues"
+    "url": "https://github.com/ozum/moe-scripts/issues"
   },
-  "homepage": "https://github.com/kentcdodds/moe-scripts#readme",
   "devDependencies": {
     "jest-in-case": "^1.0.2",
     "slash": "^1.0.0"
