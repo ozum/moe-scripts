@@ -18,6 +18,9 @@ const configFile = p => path.join(__dirname, "../config", p);
 const gitignoreFile = isCompiled ? "compile" : "non-compile";
 
 setPkg({
+  "scripts.watch:build": `moe-scripts build${isTypeScript ? '' : ' --source-maps'} --watch`,
+  "scripts.watch:test": `moe-scripts test --watch`,
+  "scripts.watch": "concurrently 'npm run watch:build' 'npm run watch:test'",
   "scripts.build": `moe-scripts build${isTypeScript ? '' : ' --source-maps'}`,
   "scripts.build:doc": `moe-scripts doc --no-cache`,
   "scripts.test": "moe-scripts test",

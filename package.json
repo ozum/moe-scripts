@@ -11,9 +11,11 @@
   },
   "scripts": {
     "install": "cd ../.. && node_modules/.bin/moe-scripts init",
-    "test": "node src test --watchAll",
+    "watch:build": "node src build --source-maps --copy-files --out-dir dist --watch",
+    "watch:test": "node src test --watch",
+    "test": "node src test",
     "test:update": "node src test --updateSnapshot",
-    "build": "node src build --watch --source-maps --copy-files --out-dir dist",
+    "build": "node src build --source-maps --copy-files --out-dir dist",
     "lint": "node src lint",
     "format": "node src format",
     "validate": "node src validate",
