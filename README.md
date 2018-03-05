@@ -99,10 +99,10 @@ contains `lint-staged` config.
 ## Inspiration
 
 This toolkit is based on and very heavily inspired by [kcd-scripts](https://github.com/kentcdodds/kcd-scripts).
-I'm aldo grateful for his [Tools without config](https://blog.kentcdodds.com/automation-without-config-412ab5e47229)
-article. I created this as a separate toolkit instead of contributing it, because he mentioned that, like me,
-[kcd-scripts](https://github.com/kentcdodds/kcd-scripts) are a personal project and has no intentions of
-documenting it as of this writing.
+I'm also grateful for his [Tools without config](https://blog.kentcdodds.com/automation-without-config-412ab5e47229)
+article. I created this as a fork and a separate toolkit instead of contributing it, because he mentioned that, like me,
+[kcd-scripts](https://github.com/kentcdodds/kcd-scripts) are a personal project and specific to his needs. (Like this
+one is specific to my needs).
 
 ## LICENSE
 
