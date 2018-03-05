@@ -14,5 +14,3 @@ if (shouldThrow) {
 }
 
 require("./run-script");
-
-// TODO: Remove dist from .gitattributes

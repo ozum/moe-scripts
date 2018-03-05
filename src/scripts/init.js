@@ -1,8 +1,4 @@
-/**
- * --target frontend | backend | compiled (Mulitple selection)
- */
 require("source-map-support").install();
-const mkdirp = require("mkdirp");
 const path = require("path");
 const fs = require("fs");
 const yargsParser = require("yargs-parser");
@@ -15,7 +11,7 @@ const args = process.argv.slice(2);
 const parsedArgs = yargsParser(args, { array: ["target"] });
 
 const isCompiled = (parsedArgs.target || []).includes("compiled") || isTypeScript;
-const isBackend = !(parsedArgs.target || []).includes("frontend");
+
 
 //const here = p => path.join(__dirname, p);
 const configFile = p => path.join(__dirname, "../config", p);

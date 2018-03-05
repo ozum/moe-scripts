@@ -1,7 +1,10 @@
 ### Babel / TypeScript etc. ###
 lib
 dist
-build
+
+# moe-scripts
+.opt-in
+.opt-out
 
 # Created by https://www.gitignore.io/api/node,webstorm,visualstudiocode,macos,windows,linux
 
