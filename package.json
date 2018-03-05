@@ -16,7 +16,9 @@
     "build": "node src build --watch --source-maps --copy-files --out-dir dist",
     "lint": "node src lint",
     "format": "node src format",
-    "validate": "node src validate"
+    "validate": "node src validate",
+    "postversion": "git push && git push --tags && npm publish",
+    "prepublishOnly": "npm run build"
   },
   "husky": {
     "hooks": {
