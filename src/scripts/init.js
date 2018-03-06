@@ -17,7 +17,12 @@ const isCompiled = (parsedArgs.target || []).includes("compiled") || isTypeScrip
 const configFile = p => path.join(__dirname, "../config", p);
 const gitignoreFile = isCompiled ? "compile" : "non-compile";
 
+if (pkg && pkg.scripts && pkg.scripts.test === 'echo "Error: no test specified" && exit 1') {
+  delete pkg.scripts.test;
+}
+
 setPkg({
+  "scripts.nodemon": "nodemon --delay 0.2 -r source-map-support/register",
   "scripts.watch:build": `moe-scripts build${isTypeScript ? '' : ' --source-maps'} --watch`,
   "scripts.watch:test": `moe-scripts test --watch`,
   "scripts.watch": "concurrently 'npm run watch:build' 'npm run watch:test'",
