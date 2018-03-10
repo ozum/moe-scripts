@@ -4,7 +4,6 @@ const chalk = require("chalk");
 const writeJsonFile = require('write-json-file');
 const { fromRoot, hasPkgProp, pkg } = require("./utils");
 const set = require("lodash.set");
-const yargsParser = require("yargs-parser");
 
 const isTypeScript = hasPkgProp('types');
 
