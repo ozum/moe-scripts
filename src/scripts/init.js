@@ -45,6 +45,8 @@ createFile(".env.sample", "# Description\n# VAR='value'\n");
 createSymLink(configFile(`gitignore/${gitignoreFile}`), ".gitignore", { force: true });
 createSymLink(configFile(`gitattributes`), ".gitattributes", { force: true });
 copyFile(configFile("changelog.md"), "CHANGELOG.md");
+copyFile(configFile("changelog.md"), "CHANGELOG.md");
+copyFile(configFile("editorconfig"), ".editorconfig");
 createFile("LICENSE", "");
 createFile("README.hbs", handlebars.compile(fs.readFileSync(configFile("readme.hbs"), { encoding: "utf8" }))(pkg));
 createFile(".prettierrc.js", 'module.exports = require("moe-scripts/prettier.js");\n');
