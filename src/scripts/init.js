@@ -3,17 +3,21 @@ const path = require("path");
 const fs = require("fs");
 const yargsParser = require("yargs-parser");
 const handlebars = require("handlebars");
-const { isTypeScript, createSymLink, createFile, copyFile, writeJson, createModuleSymLink, setPkg } = require("../utils-moe");
-const { pkg, pkgPath } = require("../utils");
-
-
-throw new Error(pkgPath, '----', process.cwd());
+const readPkgUp = require('read-pkg-up');
 
 if (require(`${process.cwd()}/package.json`).name === "moe-scripts") {
-  process.exit(0);
+  const {pkg: applicationPkg, path: pkgPath} = readPkgUp.sync({
+    cwd: path.join(fs.realpathSync(process.cwd()), '..'),
+  });
+
+  throw new Error(fs.realpathSync(path.dirname(pkgPath)));
+  process.chdir(fs.realpathSync(path.dirname(pkgPath)));
 }
 
-process.chdir(pkgPath);
+throw new Error(2);
+
+const { isTypeScript, createSymLink, createFile, copyFile, writeJson, setPkg } = require("../utils-moe");
+const { pkg } = require("../utils");
 
 const args = process.argv.slice(2);
 const parsedArgs = yargsParser(args, { array: ["target"] });
