@@ -10,7 +10,8 @@
     "moe-scripts": "dist/index.js"
   },
   "scripts": {
-    "install": "cd ../.. && node_modules/.bin/moe-scripts init",
+    "preinstall": "node src init",
+    "xinstall": "cd ../.. && node_modules/.bin/moe-scripts init --skip",
     "watch:build": "node src build --source-maps --copy-files --out-dir dist --watch",
     "watch:test": "node src test --watch",
     "test": "node src test",

@@ -10,6 +10,11 @@ const { pkg } = require("../utils");
 const args = process.argv.slice(2);
 const parsedArgs = yargsParser(args, { array: ["target"] });
 
+
+console.log(1111, process.env.npm_package_name);
+process.exit(1);
+
+
 const isCompiled = (parsedArgs.target || []).includes("compiled") || isTypeScript;
 
 //const here = p => path.join(__dirname, p);
