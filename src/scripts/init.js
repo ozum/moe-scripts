@@ -10,11 +10,8 @@ if (require(`${process.cwd()}/package.json`).name === "moe-scripts") {
     cwd: path.join(fs.realpathSync(process.cwd()), '..'),
   });
 
-  throw new Error(fs.realpathSync(path.dirname(pkgPath)));
   process.chdir(fs.realpathSync(path.dirname(pkgPath)));
 }
-
-throw new Error(2);
 
 const { isTypeScript, createSymLink, createFile, copyFile, writeJson, setPkg } = require("../utils-moe");
 const { pkg } = require("../utils");
