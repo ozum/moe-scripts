@@ -4,8 +4,13 @@ const fs = require("fs");
 const yargsParser = require("yargs-parser");
 const handlebars = require("handlebars");
 const { isTypeScript, createSymLink, createFile, copyFile, writeJson, createModuleSymLink, setPkg } = require("../utils-moe");
-const { pkg } = require("../utils");
-// const { outDir, create, customize } = require("./utils");
+const { pkg, pkgPath } = require("../utils");
+
+if (require(`${process.cwd()}/package.json`).name === "moe-scripts") {
+  process.exit(0);
+}
+
+process.chdir(pkgPath);
 
 const args = process.argv.slice(2);
 const parsedArgs = yargsParser(args, { array: ["target"] });

@@ -156,6 +156,7 @@ module.exports = {
   isOptedOut,
   parseEnv,
   pkg,
+  pkgPath,
   resolveBin,
   resolveKcdScripts,
 }
