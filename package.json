@@ -1,6 +1,6 @@
 {
   "name": "moe-scripts",
-  "version": "0.0.14",
+  "version": "0.0.13",
   "description": "CLI for common scripts for my projects",
   "engines": {
     "node": ">= 8",
@@ -10,7 +10,7 @@
     "moe-scripts": "dist/index.js"
   },
   "scripts": {
-    "postinstall": "node src init",
+    "postinstall": "if [ -f node_modules/.bin/moe-scripts ]; then moe-scripts init; fi",
     "watch:build": "node src build --source-maps --copy-files --out-dir dist --watch",
     "watch:test": "node src test --watch",
     "test": "node src test",

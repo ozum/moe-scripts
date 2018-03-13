@@ -6,10 +6,6 @@ const handlebars = require("handlebars");
 const { isTypeScript, createSymLink, createFile, copyFile, writeJson, createModuleSymLink, setPkg } = require("../utils-moe");
 const { pkg, pkgPath } = require("../utils");
 
-if (require(`${process.cwd()}/package.json`).name === "moe-scripts") {
-  process.exit(0);
-}
-
 process.chdir(pkgPath);
 
 const args = process.argv.slice(2);
