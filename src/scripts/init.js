@@ -6,7 +6,7 @@ const handlebars = require("handlebars");
 const readPkgUp = require('read-pkg-up');
 
 if (require(`${process.cwd()}/package.json`).name === "moe-scripts") {
-  const {pkg: applicationPkg, path: pkgPath} = readPkgUp.sync({
+  const {path: pkgPath} = readPkgUp.sync({
     cwd: path.join(fs.realpathSync(process.cwd()), '..'),
   });
 
