@@ -12,7 +12,6 @@ const parsedArgs = yargsParser(args, { array: ["target"] });
 
 const isCompiled = (parsedArgs.target || []).includes("compiled") || isTypeScript;
 
-
 //const here = p => path.join(__dirname, p);
 const configFile = p => path.join(__dirname, "../config", p);
 const gitignoreFile = isCompiled ? "compile" : "non-compile";
@@ -21,12 +20,23 @@ if (pkg && pkg.scripts && pkg.scripts.test === 'echo "Error: no test specified" 
   delete pkg.scripts.test;
 }
 
+// FASTER Bash Only: "f() { P=$1; P=${P/src/lib}; P=${P/.ts/.js}; tsc-watch --onSuccess \"node -r source-map-support/register ${P}\"; }; f";
+// SLOWER Cross Compatible: "nodemon --watch src --exec ts-node --";
+// For BABEL, consider BABEL-WATCH fro faster scripts
+const scriptFile = isTypeScript
+  ? 'f() { P=$1; P=${P/src/lib}; P=${P/.ts/.js}; tsc-watch --onSuccess "node -r source-map-support/register ${P}"; }; f'
+  : "nodemon --exec babel-node --";
+
+// TS Watch için: "concurrently 'npm run build -- --watch' 'npm run test -- --watch' | awk '{gsub(/\\033c/,\"\") system(\"\")}1'" // Prevents tsc --watch clear.
+// After TypeScript 2.8: "concurrently 'npm run build -- --watch --preserveWatchOutput' 'npm run test -- --watch'"
+const scriptWatch = isTypeScript
+  ? "concurrently 'npm run build -- --watch' 'npm run test -- --watch' | awk '{gsub(/\\033c/,\"\") system(\"\")}1'"
+  : "concurrently 'npm run build -- --watch' 'npm run test -- --watch";
+
 setPkg({
-  "scripts.nodemon": "nodemon --delay 0.2 -r source-map-support/register",
-  "scripts.watch:build": `moe-scripts build${isTypeScript ? '' : ' --source-maps'} --watch`,
-  "scripts.watch:test": `moe-scripts test --watch`,
-  "scripts.watch": "concurrently 'npm run watch:build' 'npm run watch:test'",
-  "scripts.build": `moe-scripts build${isTypeScript ? '' : ' --source-maps'}`,
+  "scripts.file": scriptFile,
+  "scripts.watch": scriptWatch,
+  "scripts.build": `moe-scripts build${isTypeScript ? "" : " --source-maps"}`,
   "scripts.build:doc": `moe-scripts doc --no-cache`,
   "scripts.test": "moe-scripts test",
   "scripts.test:update": "moe-scripts test --updateSnapshot",
@@ -65,4 +75,3 @@ if (isTypeScript) {
   createSymLink(configFile("tsconfig/backend.json"), "tsconfig.json");
   createSymLink(configFile("tsconfig/backend-test.json"), "tsconfig-test.json");
 }
-
