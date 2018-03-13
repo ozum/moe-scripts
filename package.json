@@ -10,7 +10,7 @@
     "moe-scripts": "dist/index.js"
   },
   "scripts": {
-    "postinstall": "if [ -e src ]; then node dist init; fi",
+    "postinstall": "if [ ! -e src ]; then node dist init; fi",
     "watch:build": "node src build --source-maps --copy-files --out-dir dist --watch",
     "watch:test": "node src test --watch",
     "test": "node src test",
