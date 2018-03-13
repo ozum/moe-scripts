@@ -10,6 +10,8 @@ if (require(`${process.cwd()}/package.json`).name === "moe-scripts") {
   process.exit(0);
 }
 
+throw new Error(pkgPath);
+
 process.chdir(pkgPath);
 
 const args = process.argv.slice(2);
