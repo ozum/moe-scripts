@@ -52,6 +52,7 @@ setPkg({
   "scripts.lint": "moe-scripts lint",
   "scripts.format": "moe-scripts format",
   "scripts.validate": "moe-scripts validate",
+  "scripts.commit": "moe-scripts commit",
   "scripts.postversion": "git push && git push --tags && npm publish",
   "scripts.prepublishOnly": "npm run build",
 });
@@ -68,8 +69,9 @@ copyFile(configFile("changelog.md"), "CHANGELOG.md");
 copyFile(configFile("editorconfig"), ".editorconfig");
 createFile("LICENSE", "");
 createFile("README.hbs", handlebars.compile(fs.readFileSync(configFile("readme.hbs"), { encoding: "utf8" }))(pkg));
-createFile(".prettierrc.js", 'module.exports = require("moe-scripts/prettier.js");\n');
-createFile(".huskyrc.js", 'module.exports = require("moe-scripts/husky.js");\n');
+createFile(".prettierrc.js", 'module.exports = require("moe-scripts/prettier");\n');
+createFile(".huskyrc.js", 'module.exports = require("moe-scripts/husky");\n');
+createFile("commitlint.config.js", 'module.exports = require("moe-scripts/commitlint");\n');
 
 // lint
 // Create node_modules/module symlink for IDE support and config file if not exists.

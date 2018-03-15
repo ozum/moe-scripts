@@ -1,5 +1,1 @@
-module.exports = {
-  "hooks": {
-    "pre-commit": "moe-scripts precommit"
-  }
-};
+module.exports = require('./dist/config/husky');
