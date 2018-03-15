@@ -35,6 +35,7 @@
     "prettier.js",
     "jest.js",
     "husky.js",
+    "commitlint.js",
     "tslint-backend.json"
   ],
   "keywords": [],
