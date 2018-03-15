@@ -31,4 +31,9 @@ const result = spawn.sync(
   { stdio: "inherit" }
 );
 
-process.exit(result.status);
+const rsyncResult = spawn.sync(
+  "rsync", ["-zarvm", "--include='*/'", "--include='*.js'", "--include='*.d.ts'", "--exclude='*'", "src/", "lib"],
+  { stdio: "inherit" }
+);
+
+process.exit(result.status && rsyncResult.status);
