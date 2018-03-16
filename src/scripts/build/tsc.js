@@ -32,8 +32,10 @@ const result = spawn.sync(
 );
 
 const rsyncResult = spawn.sync(
-  "rsync", ["-zarvm", "--include='*/'", "--include='*.js'", "--include='*.d.ts'", "--exclude='*'", "src/", "lib"],
-  { stdio: "inherit" }
+  "rsync",
+  // dirs begin with __test↴               all dirs↴           all js↴           all .d.ts↴     exclude all else↴
+  ["-zarvm", "--exclude", "__test*/", "--include", "*/", "--include", "*.js", "--include", "*.d.ts", "--exclude", "*", "src/", "lib"],
+  { stdio: "inherit" },
 );
 
 process.exit(result.status && rsyncResult.status);
