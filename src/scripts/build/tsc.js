@@ -28,6 +28,7 @@ if (!useSpecifiedOutDir && !args.includes("--no-clean")) {
 let rsyncParams;
 let rsyncCmd;
 
+
 // rsync is used to copy .js and .d.ts files in TypeScript environment, because tsc does not allow --allowJs and --declaration parameters at the same time.
 // dirs begin with __test↴           all dirs↴           all js↴           all .d.ts↴     exclude all else↴
 // rsync -zarm --exclude '__test*/' --include '*/' --include '*.js' --include '*.d.ts' --exclude '*' 'src/' 'lib'
