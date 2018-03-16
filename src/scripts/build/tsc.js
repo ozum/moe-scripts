@@ -25,17 +25,34 @@ if (!useSpecifiedOutDir && !args.includes("--no-clean")) {
   rimraf.sync(fromRoot(outDir[1]));
 }
 
-const result = spawn.sync(
+let rsyncParams;
+let rsyncCmd;
+
+// rsync is used to copy .js and .d.ts files in TypeScript environment, because tsc does not allow --allowJs and --declaration parameters at the same time.
+// dirs begin with __test↴           all dirs↴           all js↴           all .d.ts↴     exclude all else↴
+// rsync -zarm --exclude '__test*/' --include '*/' --include '*.js' --include '*.d.ts' --exclude '*' 'src/' 'lib'
+
+if (args.includes('--watch')) {
+  rsyncCmd = 'nodemon';
+  rsyncParams = ["-V", "-e", "js,d.ts", "-i", "__test*/**/*", "-w", "src", "-x", "rsync -zarm --exclude '__test*/' --include '*/' --include '*.js' --include '*.d.ts' --exclude '*' 'src/' 'lib'"];
+} else {
+  rsyncCmd = 'rsync';
+  rsyncParams = ["-zarm", "--exclude", "__test*/", "--include", "*/", "--include", "*.js", "--include", "*.d.ts", "--exclude", "*", "src/", "lib"];
+}
+
+const rsyncResult = spawn(rsyncCmd, rsyncParams, { stdio: "inherit" });
+
+const tscResult = spawn(
   resolveBin("typescript", { executable: "tsc" }),
   [...outDir].concat(args),
   { stdio: "inherit" }
 );
 
-const rsyncResult = spawn.sync(
-  "rsync",
-  // dirs begin with __test↴               all dirs↴           all js↴           all .d.ts↴     exclude all else↴
-  ["-zarm", "--exclude", "__test*/", "--include", "*/", "--include", "*.js", "--include", "*.d.ts", "--exclude", "*", "src/", "lib"],
-  { stdio: "inherit" },
-);
-
-process.exit(result.status && rsyncResult.status);
+Promise.all([rsyncResult, tscResult])
+  .then(results => {
+    process.exit(results[0].status && results[1].status);
+  })
+  .catch(err => {
+    console.log(err);
+    process.exit(1);
+  });
