@@ -158,4 +158,4 @@ module.exports = {
   pkg,
   resolveBin,
   resolveKcdScripts,
-}
+};

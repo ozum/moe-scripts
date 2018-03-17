@@ -3,9 +3,18 @@ const path = require("path");
 const fs = require("fs");
 const yargsParser = require("yargs-parser");
 const handlebars = require("handlebars");
-const { isTypeScript, createSymLink, createFile, copyFile, writeJson, createModuleSymLink, setPkg } = require("../utils-moe");
+const readPkgUp = require('read-pkg-up');
+
+if (require(`${process.cwd()}/package.json`).name === "moe-scripts") {
+  const {path: pkgPath} = readPkgUp.sync({
+    cwd: path.join(fs.realpathSync(process.cwd()), '..'),
+  });
+
+  process.chdir(fs.realpathSync(path.dirname(pkgPath)));
+}
+
+const { isTypeScript, createSymLink, createFile, copyFile, writeJson, setPkg } = require("../utils-moe");
 const { pkg } = require("../utils");
-// const { outDir, create, customize } = require("./utils");
 
 const args = process.argv.slice(2);
 const parsedArgs = yargsParser(args, { array: ["target"] });
@@ -43,6 +52,7 @@ setPkg({
   "scripts.lint": "moe-scripts lint",
   "scripts.format": "moe-scripts format",
   "scripts.validate": "moe-scripts validate",
+  "scripts.commit": "moe-scripts commit",
   "scripts.postversion": "git push && git push --tags && npm publish",
   "scripts.prepublishOnly": "npm run build",
 });
@@ -59,8 +69,9 @@ copyFile(configFile("changelog.md"), "CHANGELOG.md");
 copyFile(configFile("editorconfig"), ".editorconfig");
 createFile("LICENSE", "");
 createFile("README.hbs", handlebars.compile(fs.readFileSync(configFile("readme.hbs"), { encoding: "utf8" }))(pkg));
-createFile(".prettierrc.js", 'module.exports = require("moe-scripts/prettier.js");\n');
-createFile(".huskyrc.js", 'module.exports = require("moe-scripts/husky.js");\n');
+createFile(".prettierrc.js", 'module.exports = require("moe-scripts/prettier");\n');
+createFile(".huskyrc.js", 'module.exports = require("moe-scripts/husky");\n');
+createFile("commitlint.config.js", 'module.exports = require("moe-scripts/commitlint");\n');
 
 // lint
 // Create node_modules/module symlink for IDE support and config file if not exists.

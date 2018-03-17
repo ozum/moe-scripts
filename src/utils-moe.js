@@ -212,7 +212,6 @@ function createModuleSymLink(name) {
   createSymLink(modulePath, `node_modules/${name}`, { force: true });
 }
 
-
 module.exports = {
   normalizeOutDestination,
   createSymLink,
