@@ -22,7 +22,14 @@ if (filesGiven) {
   // we need to take all the flag-less arguments (the files that should be linted)
   // and filter out the ones that aren't ts files. Otherwise json or css files
   // may be passed through
-  args = args.filter(a => !parsedArgs._.includes(a) || a.endsWith(".ts"));
+  const filesCount = filesGiven;
+  args = args.filter(a => !parsedArgs._.includes(a) || a.endsWith(".ts") || a.endsWith(".tsx"));
+
+  // If given files are not 'ts' or 'tsx' and no project is given skip linting.
+  if (args.length === 0 && !args.includes("--project")) {
+    console.log("Files are given but none of them are lintable.");
+    process.exit(0);
+  }
 }
 
 const useDefaultProject = !filesGiven && !args.includes("--project");

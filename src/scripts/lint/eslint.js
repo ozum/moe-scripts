@@ -37,7 +37,13 @@ if (filesGiven) {
   // we need to take all the flag-less arguments (the files that should be linted)
   // and filter out the ones that aren't js files. Otherwise json or css files
   // may be passed through
-  args = args.filter(a => !parsedArgs._.includes(a) || a.endsWith(".js"));
+  args = args.filter(a => !parsedArgs._.includes(a) || a.endsWith(".js") || a.endsWith(".jsx"));
+
+  // If given files are not 'js' or 'jsx' and no project is given skip linting.
+  if (args.length === 0) {
+    console.log("Files are given but none of them are lintable.");
+    process.exit(0);
+  }
 }
 
 const result = spawn.sync(
