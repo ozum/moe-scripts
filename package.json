@@ -22,22 +22,7 @@
     "postversion": "git push && git push --tags && npm publish",
     "prepublishOnly": "npm run build"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "node src precommit"
-    }
-  },
-  "files": [
-    "dist",
-    "babel.js",
-    "eslint.js",
-    "config.js",
-    "prettier.js",
-    "jest.js",
-    "husky.js",
-    "commitlint.js",
-    "tslint-backend.json"
-  ],
+  "files": ["dist", "babel.js", "eslint.js", "config.js", "prettier.js", "jest.js", "husky.js", "commitlint.js", "tslint-backend.json"],
   "keywords": [],
   "author": "Mehmet Ozum Eldogan",
   "license": "MIT",
@@ -111,7 +96,9 @@
     "rollup-plugin-node-resolve": "^3.2.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify": "^3.0.0",
+    "sort-keys": "^2.0.0",
     "source-map-support": "^0.5.3",
+    "standard-version": "^4.3.0",
     "ts-jest": "^22.4.1",
     "ts-node": "^5.0.1",
     "tsc-watch": "^1.0.17",
@@ -124,10 +111,7 @@
     "yargs-parser": "^9.0.2"
   },
   "eslintConfig": {
-    "extends": [
-      "airbnb-base",
-      "prettier"
-    ],
+    "extends": ["airbnb-base", "prettier"],
     "rules": {
       "no-process-exit": "off",
       "import/no-dynamic-require": "off",
@@ -136,11 +120,7 @@
       "no-nested-ternary": "off"
     }
   },
-  "eslintIgnore": [
-    "node_modules",
-    "coverage",
-    "dist"
-  ],
+  "eslintIgnore": ["node_modules", "coverage", "dist"],
   "repository": {
     "type": "git",
     "url": "ozum/moe-scripts"

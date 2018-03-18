@@ -1,11 +1,12 @@
 const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
-const writeJsonFile = require('write-json-file');
+const writeJsonFile = require("write-json-file");
 const { fromRoot, hasPkgProp, pkg } = require("./utils");
 const set = require("lodash.set");
+const sortKeys = require("sort-keys");
 
-const isTypeScript = hasPkgProp('types');
+const isTypeScript = hasPkgProp("types");
 
 const mark = {
   check: chalk.green("✔"),
@@ -22,9 +23,9 @@ const mark = {
  */
 function logMessage(message, options) {
   if (options.mark && !mark[options.mark]) {
-    throw new Error('Wrong mark option');
+    throw new Error("Wrong mark option");
   }
-  const pre = options.mark ? `${mark[options.mark]} ` : '';
+  const pre = options.mark ? `${mark[options.mark]} ` : "";
   if (options && options.log) {
     console.log(`${pre} ${message}`);
   }
@@ -87,20 +88,20 @@ function normalizeOutDestination(args, argName) {
  */
 function createSymLink(target, projectFile, { force = false, log = true } = {}) {
   const type = fs.lstatSync(target).isDirectory() ? "dir" : "file";
-  const linkType = type === 'dir' ? 'absolute' : 'relative';
+  const linkType = type === "dir" ? "absolute" : "relative";
   const targetPath = type === "dir" ? path.resolve(target) : path.relative(fromRoot(), target);
   const sourcePath = fromRoot(projectFile);
 
   if (fs.existsSync(sourcePath) && force && fs.lstatSync(sourcePath).isSymbolicLink()) {
     fs.unlinkSync(sourcePath);
-    logMessage(`Deleted Symbolic Link (force): ${projectFile}`, { log, mark: 'check' });
+    logMessage(`Deleted Symbolic Link (force): ${projectFile}`, { log, mark: "check" });
   }
 
   if (!fs.existsSync(sourcePath)) {
     fs.symlinkSync(targetPath, sourcePath, type);
-    logMessage(`Created Symbolic Link (${linkType}): ${projectFile} -> ${targetPath}`, { log, mark: 'check' });
+    logMessage(`Created Symbolic Link (${linkType}): ${projectFile} -> ${targetPath}`, { log, mark: "check" });
   } else {
-    logMessage(`Skipped Symbolic Link (File exists): ${projectFile}`, { log, mark: 'warn' });
+    logMessage(`Skipped Symbolic Link (File exists): ${projectFile}`, { log, mark: "warn" });
   }
 }
 
@@ -112,19 +113,19 @@ function createSymLink(target, projectFile, { force = false, log = true } = {}) 
  * @param {boolean} [options.log=true]    - Emits output to console.
  * @param {boolean} [options.force=false] - Writes file even it exists.
  */
-function createFile(projectFile, data,  { force = false, log = true } = {}) {
+function createFile(projectFile, data, { force = false, log = true } = {}) {
   const filePath = fromRoot(projectFile);
 
   if (fs.existsSync(filePath) && force) {
     fs.unlinkSync(filePath);
-    logMessage(`Deleted File (force): ${projectFile}`, { log, mark: 'check' });
+    logMessage(`Deleted File (force): ${projectFile}`, { log, mark: "check" });
   }
 
   if (!fs.existsSync(filePath)) {
     fs.writeFileSync(filePath, data);
-    logMessage(`Created File: ${projectFile}`, { log, mark: 'check' });
+    logMessage(`Created File: ${projectFile}`, { log, mark: "check" });
   } else {
-    logMessage(`Skipped File (File exists): ${projectFile}`, { log, mark: 'warn' });
+    logMessage(`Skipped File (File exists): ${projectFile}`, { log, mark: "warn" });
   }
 }
 
@@ -141,12 +142,12 @@ function copyFile(source, projectFile, { force = false, log = true } = {}) {
   const fileExists = fs.existsSync(filePath);
 
   if (fileExists && !force) {
-    logMessage(`Skipped File Copy: ${source} -> ${projectFile}`, { log, mark: 'warn' });
+    logMessage(`Skipped File Copy: ${source} -> ${projectFile}`, { log, mark: "warn" });
   }
 
   if (!fileExists || force) {
     fs.copyFileSync(source, filePath);
-    logMessage(`Copied File: ${source} -> ${projectFile}`, { log, mark: 'check' });
+    logMessage(`Copied File: ${source} -> ${projectFile}`, { log, mark: "check" });
   }
 }
 
@@ -163,9 +164,9 @@ function writeJson(file, data, { force = false, log = true } = {}) {
   const filePath = fromRoot(file);
   if (!fs.existsSync(filePath) || force) {
     writeJsonFile.sync(filePath, data, { indent: 2 });
-    logMessage(`Written JSON File: ${file}`, { log, mark: 'check' });
+    logMessage(`Written JSON File: ${file}`, { log, mark: "check" });
   } else {
-    logMessage(`Skipped JSON File (File exists): ${file}`, { log, mark: 'warn' });
+    logMessage(`Skipped JSON File (File exists): ${file}`, { log, mark: "warn" });
   }
 }
 
@@ -195,11 +196,12 @@ function setPkg(data, { force = false, log = true } = {}) {
   });
 
   if (skippedKeys.length > 0) {
-    logMessage(`Following keys are not updated in package.json (they exist): ${skippedKeys.join(', ')}.`, { log, mark: 'warn' });
+    logMessage(`Following keys are not updated in package.json (they exist): ${skippedKeys.join(", ")}.`, { log, mark: "warn" });
   }
   if (updatedKeys.length > 0) {
-    logMessage(`Following keys are updated in package.json: ${updatedKeys.join(', ')}.`, { log, mark: 'check' });
-    writeJson('package.json', pkg, { force: true });
+    pkg.scripts = sortKeys(pkg.scripts);
+    logMessage(`Following keys are updated in package.json: ${updatedKeys.join(", ")}.`, { log, mark: "check" });
+    writeJson("package.json", pkg, { force: true });
   }
 }
 

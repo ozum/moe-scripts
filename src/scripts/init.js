@@ -3,11 +3,11 @@ const path = require("path");
 const fs = require("fs");
 const yargsParser = require("yargs-parser");
 const handlebars = require("handlebars");
-const readPkgUp = require('read-pkg-up');
+const readPkgUp = require("read-pkg-up");
 
 if (require(`${process.cwd()}/package.json`).name === "moe-scripts") {
-  const {path: pkgPath} = readPkgUp.sync({
-    cwd: path.join(fs.realpathSync(process.cwd()), '..'),
+  const { path: pkgPath } = readPkgUp.sync({
+    cwd: path.join(fs.realpathSync(process.cwd()), ".."),
   });
 
   process.chdir(fs.realpathSync(path.dirname(pkgPath)));
@@ -53,8 +53,10 @@ setPkg({
   "scripts.format": "moe-scripts format",
   "scripts.validate": "moe-scripts validate",
   "scripts.commit": "moe-scripts commit",
-  "scripts.postversion": "git push && git push --tags && npm publish",
   "scripts.prepublishOnly": "npm run build",
+  "scripts.squash": "git checkout master && git merge --squash bugfix && npm run commit",
+  "scripts.release":
+    "git checkout master && git pull origin master && standard-version && git push --follow-tags origin master && npm publish",
 });
 
 // It is not necessary to create symlink of module directories using createModuleSymLink("tslint"), because npm installs modules as a flat list,
