@@ -54,7 +54,7 @@ setPkg({
   "scripts.validate": "moe-scripts validate",
   "scripts.commit": "moe-scripts commit",
   "scripts.prepublishOnly": "npm run build",
-  "scripts.squash": "git checkout master && git merge --squash bugfix && npm run commit",
+  "scripts.squash": "BRANCH=`git rev-parse --abbrev-ref HEAD` && git checkout master && git merge --squash $BRANCH && npm run commit",
   "scripts.release":
     "git checkout master && git pull origin master && standard-version && git push --follow-tags origin master && npm publish",
 });
