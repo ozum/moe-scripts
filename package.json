@@ -1,6 +1,6 @@
 {
   "name": "moe-scripts",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "description": "CLI for common scripts for my projects",
   "engines": {
     "node": ">= 8",
@@ -22,7 +22,17 @@
     "postversion": "git push && git push --tags && npm publish",
     "prepublishOnly": "npm run build"
   },
-  "files": ["dist", "babel.js", "eslint.js", "config.js", "prettier.js", "jest.js", "husky.js", "commitlint.js", "tslint-backend.json"],
+  "files": [
+    "dist",
+    "babel.js",
+    "eslint.js",
+    "config.js",
+    "prettier.js",
+    "jest.js",
+    "husky.js",
+    "commitlint.js",
+    "tslint-backend.json"
+  ],
   "keywords": [],
   "author": "Mehmet Ozum Eldogan",
   "license": "MIT",
@@ -111,7 +121,10 @@
     "yargs-parser": "^9.0.2"
   },
   "eslintConfig": {
-    "extends": ["airbnb-base", "prettier"],
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
     "rules": {
       "no-process-exit": "off",
       "import/no-dynamic-require": "off",
@@ -120,7 +133,11 @@
       "no-nested-ternary": "off"
     }
   },
-  "eslintIgnore": ["node_modules", "coverage", "dist"],
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "ozum/moe-scripts"
