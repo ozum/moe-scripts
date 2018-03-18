@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="547dac92-2fa8-4dea-8cb0-c496b11ea4fb" name="Default" comment="Added: standard-version">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    <list default="true" id="547dac92-2fa8-4dea-8cb0-c496b11ea4fb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scripts/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils-moe.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils-moe.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,8 +40,8 @@
           <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+                <state relative-caret-position="774">
+                  <caret line="109" column="33" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -62,7 +59,7 @@
             <entry file="file://$PROJECT_DIR$/src/scripts/precommit.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="425">
-                  <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+                  <caret line="25" selection-start-line="25" selection-end-line="25" />
                 </state>
               </provider>
             </entry>
@@ -71,18 +68,22 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="init.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="init.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/scripts/init.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+                <state relative-caret-position="542">
+                  <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="husky.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="husky.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/husky.js">
-              <provider selected="true" editor-type-id="text-editor" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+                </state>
+              </provider>
             </entry>
           </file>
           <file leaf-file-name="tslint.js" pinned="false" current-in-tab="false">
@@ -127,7 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tsconfig-node</find>
       <find>babel-trans</find>
       <find>trans</find>
       <find>parsedArgs</find>
@@ -157,9 +157,11 @@
       <find>watch</find>
       <find>ci</find>
       <find>husky</find>
+      <find>-beta.40</find>
     </findStrings>
     <replaceStrings>
       <replace>handlebars</replace>
+      <replace>-beta.42</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/config</dir>
@@ -223,8 +225,8 @@
         <option value="$PROJECT_DIR$/src/scripts/lint/tslint.js" />
         <option value="$PROJECT_DIR$/src/release.js" />
         <option value="$PROJECT_DIR$/src/utils-moe.js" />
-        <option value="$PROJECT_DIR$/src/scripts/init.js" />
         <option value="$PROJECT_DIR$/husky.js" />
+        <option value="$PROJECT_DIR$/src/scripts/init.js" />
         <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
@@ -248,8 +250,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1166" />
-    <option name="y" value="175" />
+    <option name="x" value="827" />
+    <option name="y" value="320" />
     <option name="width" value="2333" />
     <option name="height" value="1457" />
   </component>
@@ -373,7 +375,7 @@
       <workItem from="1520947781804" duration="2177000" />
       <workItem from="1521289615731" duration="2792000" />
       <workItem from="1521350907804" duration="3495000" />
-      <workItem from="1521389557636" duration="534000" />
+      <workItem from="1521389557636" duration="2182000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1520138348890</created>
@@ -536,11 +538,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521300656549</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added: standard-version">
+      <created>1521390099335</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1521390099335</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116188000" />
+    <option name="totallyTimeSpent" value="117836000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -552,18 +561,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1166" y="175" width="2333" height="1457" extended-state="0" />
+    <frame x="827" y="320" width="2333" height="1457" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.64442015" visible="true" weight="0.21453287" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.64444447" visible="true" weight="0.21453287" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32975364" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32992172" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32794118" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32794118" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Structure" order="1" sideWeight="0.35557988" side_tool="true" visible="true" weight="0.21453287" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.37132353" />
+      <window_info id="Structure" order="1" sideWeight="0.35555556" side_tool="true" visible="true" weight="0.21453287" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.37132353" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
@@ -885,24 +894,28 @@
     <entry file="file://$PROJECT_DIR$/src/scripts/precommit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/husky.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scripts/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="542">
+          <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/husky.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        <state relative-caret-position="774">
+          <caret line="109" column="33" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
         </state>
       </provider>
     </entry>
