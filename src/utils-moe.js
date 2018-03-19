@@ -133,16 +133,18 @@ function createFile(projectFile, data, { force = false, log = true } = {}) {
 
 /**
  * Creates given directory relative to project root.
- * @param {string}  path                  - Directory path to relative to project root.
+ * @param {string}  pathToDir             - Directory path to relative to project root.
+ * @param {Object}  [options]             - Options
+ * @param {boolean} [options.log=true]    - Emits output to console.
  */
-function createDir(path) {
-  const dirPath = fromRoot(path);
+function createDir(pathToDir, { log = true }) {
+  const dirPath = fromRoot(pathToDir);
 
   if (!fs.existsSync(dirPath)) {
     fs.mkdirsSync(dirPath);
-    logMessage(`Created Directory: ${path}`, { log, mark: "check" });
+    logMessage(`Created Directory: ${pathToDir}`, { log, mark: "check" });
   } else {
-    logMessage(`Skipped Directory (Directory exists): ${path}`, { log, mark: "warn" });
+    logMessage(`Skipped Directory (Directory exists): ${pathToDir}`, { log, mark: "warn" });
   }
 }
 

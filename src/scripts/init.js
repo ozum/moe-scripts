@@ -13,7 +13,7 @@ if (require(`${process.cwd()}/package.json`).name === "moe-scripts") {
   process.chdir(fs.realpathSync(path.dirname(pkgPath)));
 }
 
-const { isTypeScript, createSymLink, createFile, copyFile, writeJson, setPkg, createDir } = require("../utils-moe");
+const { isTypeScript, createSymLink, createFile, copyFile, writeJson, setPkg } = require("../utils-moe");
 const { pkg } = require("../utils");
 
 const args = process.argv.slice(2);
@@ -62,7 +62,6 @@ setPkg({
 // It is not necessary to create symlink of module directories using createModuleSymLink("tslint"), because npm installs modules as a flat list,
 // so they are directly in node_modules of project: @types/jest, @types/node, prettier, ts-jest, eslint, tslint
 
-createDir(".git/hooks");
 createFile(".env", "");
 createFile(".env.sample", "# Description\n# VAR='value'\n");
 createSymLink(configFile(`gitignore/${gitignoreFile}`), ".gitignore", { force: true });
