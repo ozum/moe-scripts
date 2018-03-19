@@ -1,6 +1,6 @@
 {
   "name": "moe-scripts",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "description": "CLI for common scripts for my projects",
   "engines": {
     "node": ">= 8",
