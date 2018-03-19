@@ -137,7 +137,7 @@ function createFile(projectFile, data, { force = false, log = true } = {}) {
  * @param {Object}  [options]             - Options
  * @param {boolean} [options.log=true]    - Emits output to console.
  */
-function createDir(pathToDir, { log = true }) {
+function createDir(pathToDir, { log = true } = {}) {
   const dirPath = fromRoot(pathToDir);
 
   if (!fs.existsSync(dirPath)) {
