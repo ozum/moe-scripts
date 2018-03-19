@@ -17,6 +17,7 @@ const jestConfig = {
   testPathIgnorePatterns: [...ignores],
   coveragePathIgnorePatterns: [...ignores, "src/(umd|cjs|esm)-entry.js$"],
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
+  watchPathIgnorePatterns: [...ignores],
   coverageThreshold: {
     global: {
       branches: 100,
