@@ -9,7 +9,8 @@ const {pkg, path: pkgPath} = readPkgUp.sync({
   cwd: fs.realpathSync(process.cwd()),
 })
 const appDirectory = path.dirname(pkgPath)
-
+console.log('1: ' + appDirectory);
+console.log('2: ' + process.cwd());
 function resolveKcdScripts() {
   if (pkg.name === 'moe-scripts') {
     return require.resolve('./').replace(process.cwd(), '.')
