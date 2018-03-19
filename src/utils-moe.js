@@ -239,6 +239,7 @@ module.exports = {
   copyFile,
   logMessage,
   isTypeScript,
+  createDir,
   setPkg,
   createModuleSymLink,
 };

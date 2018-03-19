@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="796cd8a5-c289-4ea6-ae3d-d50c45e4c588" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scripts/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/init.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils-moe.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils-moe.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,20 +25,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="init.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="init.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scripts/init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="448">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils-moe.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="utils-moe.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utils-moe.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-297">
-              <caret line="145" column="3" selection-start-line="145" selection-start-column="3" selection-end-line="145" selection-end-column="3" />
+            <state relative-caret-position="617">
+              <caret line="240" column="14" selection-start-line="240" selection-start-column="14" selection-end-line="240" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -105,7 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>trans</find>
       <find>parsedArgs</find>
       <find>config</find>
       <find>follo</find>
@@ -135,6 +130,7 @@
       <find>husky</find>
       <find>-beta.40</find>
       <find>fs-ex</find>
+      <find>isTypeScript</find>
     </findStrings>
     <replaceStrings>
       <replace>handlebars</replace>
@@ -202,9 +198,9 @@
         <option value="$PROJECT_DIR$/src/release.js" />
         <option value="$PROJECT_DIR$/husky.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/utils-moe.js" />
         <option value="$PROJECT_DIR$/sil.js" />
         <option value="$PROJECT_DIR$/src/scripts/init.js" />
+        <option value="$PROJECT_DIR$/src/utils-moe.js" />
       </list>
     </option>
   </component>
@@ -528,11 +524,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521452319582</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Updated: create .git/hooks if it does not exists.">
+      <created>1521460708423</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1521460708423</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122083000" />
+    <option name="totallyTimeSpent" value="122247000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -597,7 +600,8 @@
     <MESSAGE value="// Updated: make lint scripts skip if files are given but none of them are lintable." />
     <MESSAGE value="Added: standard-version" />
     <MESSAGE value="Updated: Packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated: Packages" />
+    <MESSAGE value="Updated: create .git/hooks if it does not exists." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated: create .git/hooks if it does not exists." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -945,17 +949,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils-moe.js">
+    <entry file="file://$PROJECT_DIR$/src/scripts/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-297">
-          <caret line="145" column="3" selection-start-line="145" selection-start-column="3" selection-end-line="145" selection-end-column="3" />
+        <state relative-caret-position="448">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scripts/init.js">
+    <entry file="file://$PROJECT_DIR$/src/utils-moe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="617">
+          <caret line="240" column="14" selection-start-line="240" selection-start-column="14" selection-end-line="240" selection-end-column="14" />
         </state>
       </provider>
     </entry>
