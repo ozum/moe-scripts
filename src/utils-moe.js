@@ -1,10 +1,12 @@
-const fs = require("fs");
+const fs = require('fs-extra');
 const path = require("path");
 const chalk = require("chalk");
 const writeJsonFile = require("write-json-file");
 const { fromRoot, hasPkgProp, pkg } = require("./utils");
 const set = require("lodash.set");
 const sortKeys = require("sort-keys");
+
+
 
 const isTypeScript = hasPkgProp("types");
 
@@ -126,6 +128,21 @@ function createFile(projectFile, data, { force = false, log = true } = {}) {
     logMessage(`Created File: ${projectFile}`, { log, mark: "check" });
   } else {
     logMessage(`Skipped File (File exists): ${projectFile}`, { log, mark: "warn" });
+  }
+}
+
+/**
+ * Creates given directory relative to project root.
+ * @param {string}  path                  - Directory path to relative to project root.
+ */
+function createDir(path) {
+  const dirPath = fromRoot(path);
+
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirsSync(dirPath);
+    logMessage(`Created Directory: ${path}`, { log, mark: "check" });
+  } else {
+    logMessage(`Skipped Directory (Directory exists): ${path}`, { log, mark: "warn" });
   }
 }
 
