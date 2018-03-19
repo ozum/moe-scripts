@@ -5,13 +5,16 @@ const has = require('lodash.has')
 const readPkgUp = require('read-pkg-up')
 const which = require('which')
 
+
+// Align appdir according to npm lifecycle, because cwd has different values according to lifecycle event
+// preinstall cwd: project/node_modules/moe-scripts
+// postinstall cwd: project
+
 const {pkg, path: pkgPath} = readPkgUp.sync({
   cwd: fs.realpathSync(process.env.npm_lifecycle_event === 'preinstall' ? path.join(process.cwd(), '../..') : process.cwd()),
 })
 const appDirectory = path.dirname(pkgPath)
-console.log('0: ' + process.env.npm_lifecycle_event);
-console.log('1: ' + appDirectory);
-console.log('2: ' + process.cwd());
+
 function resolveKcdScripts() {
   if (pkg.name === 'moe-scripts') {
     return require.resolve('./').replace(process.cwd(), '.')
