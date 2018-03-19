@@ -125,9 +125,9 @@ function createFile(projectFile, data, { force = false, log = true } = {}) {
 
   if (!fs.existsSync(filePath)) {
     fs.writeFileSync(filePath, data);
-    logMessage(`Created File: ${projectFile}`, { log, mark: "check" });
+    logMessage(`Created File: ${filePath}`, { log, mark: "check" });
   } else {
-    logMessage(`Skipped File (File exists): ${projectFile}`, { log, mark: "warn" });
+    logMessage(`Skipped File (File exists): ${filePath}`, { log, mark: "warn" });
   }
 }
 
@@ -142,9 +142,9 @@ function createDir(pathToDir, { log = true } = {}) {
 
   if (!fs.existsSync(dirPath)) {
     fs.mkdirsSync(dirPath);
-    logMessage(`Created Directory: ${pathToDir}`, { log, mark: "check" });
+    logMessage(`Created Directory: ${dirPath}`, { log, mark: "check" });
   } else {
-    logMessage(`Skipped Directory (Directory exists): ${pathToDir}`, { log, mark: "warn" });
+    logMessage(`Skipped Directory (Directory exists): ${dirPath}`, { log, mark: "warn" });
   }
 }
 
@@ -183,9 +183,9 @@ function writeJson(file, data, { force = false, log = true } = {}) {
   const filePath = fromRoot(file);
   if (!fs.existsSync(filePath) || force) {
     writeJsonFile.sync(filePath, data, { indent: 2 });
-    logMessage(`Written JSON File: ${file}`, { log, mark: "check" });
+    logMessage(`Written JSON File: ${filePath}`, { log, mark: "check" });
   } else {
-    logMessage(`Skipped JSON File (File exists): ${file}`, { log, mark: "warn" });
+    logMessage(`Skipped JSON File (File exists): ${filePath}`, { log, mark: "warn" });
   }
 }
 
