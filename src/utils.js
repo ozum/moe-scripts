@@ -6,7 +6,7 @@ const readPkgUp = require('read-pkg-up')
 const which = require('which')
 
 const {pkg, path: pkgPath} = readPkgUp.sync({
-  cwd: fs.realpathSync(process.cwd()),
+  cwd: fs.realpathSync(process.env.npm_lifecycle_event === 'preinstall' ? path.join(process.cwd(), '../..') : process.cwd()),
 })
 const appDirectory = path.dirname(pkgPath)
 console.log('0: ' + process.env.npm_lifecycle_event);
