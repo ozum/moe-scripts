@@ -41,19 +41,12 @@ if (args.includes('--watch')) {
   rsyncParams = ["-zarm", "--exclude", "__test*/", "--include", "*/", "--include", "*.js", "--include", "*.d.ts", "--exclude", "*", "src/", "lib"];
 }
 
-const rsyncResult = spawn(rsyncCmd, rsyncParams, { stdio: "inherit" });
+const rsyncResult = spawn.sync(rsyncCmd, rsyncParams, { stdio: "inherit" });
 
-const tscResult = spawn(
+const tscResult = spawn.sync(
   resolveBin("typescript", { executable: "tsc" }),
   [...outDir].concat(args),
   { stdio: "inherit" }
 );
 
-Promise.all([rsyncResult, tscResult])
-  .then(results => {
-    process.exit(results[0].status && results[1].status);
-  })
-  .catch(err => {
-    console.log(err);
-    process.exit(1);
-  });
+process.exit(rsyncResult.status && tscResult.status);
