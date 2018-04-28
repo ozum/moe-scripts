@@ -2,8 +2,8 @@
 .opt-out
 
 ### Babel / TypeScript etc. ###
-lib
-dist
+/lib
+/dist
 
 # moe-scripts
 .opt-in
