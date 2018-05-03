@@ -5,8 +5,7 @@ const kcdScripts = resolveKcdScripts();
 module.exports = {
   concurrent: false,
   linters: {
-    //".all-contributorsrc": [`${kcdScripts} contributors generate`, "git add README.md"],
-    "README.md": [`${kcdScripts} doc`, "git add"],
+    // ".all-contributorsrc": [`${kcdScripts} contributors generate`, "git add README.md"],
     "**/*.+(js|json|less|css|ts|md)": [
       isOptedOut("autoformat", null, `${kcdScripts} format`),
       `${kcdScripts} lint`,
