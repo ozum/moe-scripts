@@ -9,9 +9,14 @@ const args = process.argv.slice(2);
 
 console.log("Building doc...");
 const docResult = spawn.sync("npm", ["run", "build:doc"]);
-
 if (docResult.status !== 0) {
   process.exit(docResult.status);
+}
+
+console.log("Adding doc to git...");
+const stageDoc = spawn.sync("git", ["add", "README.md"]);
+if (stageDoc.status !== 0) {
+  process.exit(stageDoc.status);
 }
 
 const useBuiltInConfig =
