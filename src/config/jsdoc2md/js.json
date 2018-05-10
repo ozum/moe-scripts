@@ -3,7 +3,5 @@
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": ".+\\.(test|spec).ts"
   },
-  "plugins": [
-    "plugins/markdown"
-  ]
+  "plugins": ["plugins/markdown"]
 }

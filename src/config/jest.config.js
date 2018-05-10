@@ -1,16 +1,15 @@
 const path = require("path");
-const { ifAnyDep, hasFile, hasPkgProp, fromRoot } = require("../utils");
-const { isTypeScript } = require("../utils-moe");
+const project = require("../project");
 
 const here = p => path.join(__dirname, p);
 
-const useBuiltInBabelConfig = !hasFile(".babelrc") && !hasPkgProp("babel");
+const useBuiltInBabelConfig = !project.hasFileSync(".babelrc") && !project.package.has("babel");
 
 const ignores = ["/node_modules/", "/fixtures/", "/__tests__/helpers/", "/__test_supplements__/", "/__test_helpers__/", "__mocks__"];
 
 const jestConfig = {
-  roots: [fromRoot("src")],
-  testEnvironment: ifAnyDep(["webpack", "rollup", "react"], "jsdom", "node"),
+  roots: [project.hasFileSync("src", project.fromRoot("src"), project.fromRoot("lib"))],
+  testEnvironment: project.hasAnyDep(["webpack", "rollup", "react"], "jsdom", "node"),
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   collectCoverageFrom: ["src/**/*.+(js|jsx|ts|tsx)"],
   testMatch: ["**/__tests__/**/*.+(js|jsx|ts|tsx)", "**/*.(test|spec).(js|jsx|ts|tsx)"],
@@ -28,7 +27,7 @@ const jestConfig = {
   },
 };
 
-if (isTypeScript) {
+if (project.isTypeScript) {
   jestConfig.transform = { "^.+\\.(js|ts|jsx|tsx)$": "ts-jest" };
   jestConfig.globals = { "ts-jest": { tsConfigFile: "tsconfig-test.json" } };
 } else if (useBuiltInBabelConfig) {

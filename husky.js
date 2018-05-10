@@ -1,1 +1,1 @@
-module.exports = require('./dist/config/husky');
+module.exports = require("./config").husky;

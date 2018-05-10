@@ -1,0 +1,43 @@
+<!-- DO NOT EDIT README.md (It will be overridden by README.hbs) -->
+
+# moe-scripts
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+<!-- START doctoc -->
+<!-- END doctoc -->
+
+# Description
+
+CLI toolbox for common scripts for JavaScript / TypeScript projects. Inspired by ["Tools without config"](https://blog.kentcdodds.com/automation-without-config-412ab5e47229)
+and [kcd-scripts](https://github.com/kentcdodds/kcd-scripts)
+
+# Beware
+
+**Build yours using [script-helper](https://www.npmjs.com/package/script-helper).**
+
+Instead of using this toolbox directly, consider creating yours using [script-helper](https://www.npmjs.com/package/script-helper).
+This library is an example usage for [script-helper](https://www.npmjs.com/package/script-helper) and not meant for general use.
+
+If it fits you, fork it, because it may change from version to version according to needs of author.
+
+# Synopsis
+
+```
+> npx moe-scripts build
+```
+
+# Details
+
+### tslint.json
+
+It is extendible via:
+
+```json
+{ "extends": "moe-scripts/tslint.json" }
+```
+
+Note: `tslint.json` is not a symbolic link in source root. There is no safe place to link it, because `lib` is not always available in source and `src` is not available in npm package.
+
+# API
+{{>main~}}

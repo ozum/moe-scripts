@@ -1,16 +1,16 @@
-const { resolveKcdScripts, resolveBin, isOptedOut } = require("../utils");
+const project = require("../project");
 
-const kcdScripts = resolveKcdScripts();
+const scripts = project.moduleBin;
 
 module.exports = {
   concurrent: false,
   linters: {
     // ".all-contributorsrc": [`${kcdScripts} contributors generate`, "git add README.md"],
     "**/*.+(js|json|less|css|ts|md)": [
-      isOptedOut("autoformat", null, `${kcdScripts} format`),
-      `${kcdScripts} lint`,
-      `${kcdScripts} test --findRelatedTests --passWithNoTests`,
-      isOptedOut("autoformat", null, "git add"),
+      project.isOptedOut("autoformat", null, `${scripts} format`),
+      `${scripts} lint`,
+      `${scripts} test --findRelatedTests --passWithNoTests --no-watch`,
+      project.isOptedOut("autoformat", null, "git add"),
     ].filter(Boolean),
   },
 };

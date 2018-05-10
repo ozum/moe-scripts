@@ -1,0 +1,14 @@
+* jest coverage { "target": "esnext" } ile spread operatöründe hata veriyor. Hala veriyor mu bak https://github.com/kulshekhar/ts-jest/issues/400#issuecomment-354651071
+
+
+const a = { a: 1 };
+const b = { ...a };
+
+jest --coverage
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "target": "es5"
+    }
+}
+
