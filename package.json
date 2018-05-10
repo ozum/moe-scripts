@@ -35,7 +35,7 @@
   "scripts": {
     "debug": "ts-node src debug",
     "build": "ts-node src build",
-    "build:doc": "ts-node doc --no-cache",
+    "build:doc": "ts-node src doc --no-cache",
     "commit": "ts-node src commit",
     "file": "f() { P=$1; P=${P/src/lib}; P=${P/.ts/.js}; tsc-watch --onSuccess \"node -r source-map-support/register ${P}\"; }; f",
     "format": "ts-node src format",
@@ -46,12 +46,12 @@
     "prepublishOnly": "ts-node src build",
     "release": "git checkout master && git pull origin master && standard-version && git push --follow-tags origin master && npm publish",
     "squash": "BRANCH=`git rev-parse --abbrev-ref HEAD` && git checkout master && git merge --squash $BRANCH && npm run commit",
-    "test": "ts-node test",
+    "test": "ts-node src test",
     "test:update": "node src test --updateSnapshot",
     "validate": "ts-node src validate",
     "watch": "concurrently 'npm run build -- --watch' 'npm run test -- --watch' | awk '{gsub(/\\033c/,\"\") system(\"\")}1'",
     "watch:build": "ts-node build --source-maps --copy-files --out-dir dist --watch",
-    "watch:test": "ts-node test --watch"
+    "watch:test": "ts-node src test --watch"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0-beta.46",
