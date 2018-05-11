@@ -1,6 +1,6 @@
 {
   "name": "moe-scripts",
-  "version": "0.1.6",
+  "version": "0.1.5",
   "description": "CLI toolbox for common scripts for JavaScript / TypeScript projects",
   "engines": {
     "node": ">= 9",
@@ -41,7 +41,7 @@
     "format": "ts-node src format",
     "lint": "ts-node src lint",
     "postinstall": "if [ ! -e src ]; then moe-scripts init; fi",
-    "preinstall": "if [ ! -e src ]; then moe-scripts init; fi",
+    "preinstall": "if [ ! -e src ]; then node lib init; fi",
     "preuninstall": "if [ ! -e src ]; then moe-scripts reset; fi",
     "prepublishOnly": "ts-node src build",
     "release": "git checkout master && git pull origin master && standard-version && git push --follow-tags origin master && npm publish",
