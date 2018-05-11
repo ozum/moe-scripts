@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/ozum/moe-scripts/compare/v0.1.2...v0.1.3) (2018-05-11)
+
+
+### Bug Fixes
+
+* disable preinstall script temporarily ([8edc6ca](https://github.com/ozum/moe-scripts/commit/8edc6ca))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/ozum/moe-scripts/compare/v0.1.1...v0.1.2) (2018-05-10)
 
