@@ -9,7 +9,7 @@
   "main": "lib/index",
   "types": "lib/index",
   "bin": {
-    "moe-scripts": "lib/index"
+    "moe-scripts": "lib/index.js"
   },
   "files": [
     "lib",
