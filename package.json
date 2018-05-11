@@ -1,6 +1,6 @@
 {
   "name": "moe-scripts",
-  "version": "0.1.7",
+  "version": "0.0.0-semantically-released",
   "description": "CLI toolbox for common scripts for JavaScript / TypeScript projects",
   "engines": {
     "node": ">= 9",
@@ -116,7 +116,7 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify": "^3.0.0",
-    "script-helper": "^0.8.2",
+    "script-helper": "^0.8.3",
     "standard-version": "^4.3.0",
     "ts-jest": "^22.4.5",
     "ts-node": "^6.0.3",
