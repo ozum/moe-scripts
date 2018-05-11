@@ -5,7 +5,7 @@ import yargsParser from "yargs-parser";
 import handlebars from "handlebars";
 
 const preInstall: Script = function preInstall(project: Project, rawArgs: Array<any>, s: ScriptKit) {
-  project.createDirSync(".git/hooks");
+  project.createDirSync(".git/hooks", { track: false });
   return { status: 0 };
 };
 
