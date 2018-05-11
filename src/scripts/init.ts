@@ -12,7 +12,7 @@ const preInstall: Script = function preInstall(project: Project, rawArgs: Array<
 const init: Script = function init(project: Project, rawArgs: Array<any>, s: ScriptKit) {
   // If it called itself, skip.
   if (project.name === project.moduleName) {
-    project.logger.warn(`init script is skipped, because project and module are same (${project.name}).`);
+    project.logger.warn(`init script is skipped, because project and module are same: "${project.name}".`);
     return { status: 0 };
   }
 
@@ -39,7 +39,7 @@ const init: Script = function init(project: Project, rawArgs: Array<any>, s: Scr
 
   project.package
     .set("main", "lib/index")
-    .set("bin", project.isCompiled ? ["lib", "bin", "@types"] : ["lib"])
+    .set("files", project.isCompiled ? ["lib", "bin", "@types"] : ["lib"])
     .set("scripts.file", scripts.file)
     .set("scripts.watch", scripts.watch)
     .set("scripts.build", scripts.build)
