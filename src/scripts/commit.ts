@@ -1,3 +1,12 @@
+/**
+ * @module commit
+ * @desc
+ * Starts [`commitizen`](https://github.com/commitizen/cz-cli) interactive CLI to commit staged files adhering conventional-changelog using [`cz-conventional-changelog`](https://github.com/commitizen/cz-conventional-changelog) plugin.
+ *
+ * @example
+ * $ npm run commit
+ * $ npx moe-scripts commit
+ */
 import { Project, Script, ScriptKit } from "script-helper";
 import path from "path";
 

@@ -1,3 +1,24 @@
+/**
+ * @module validate
+ * @desc
+ * Validates project.
+ *
+ * Executes following tasks based on the event being in:
+ *
+ * |Event|Tasks|
+ * |--|--|
+ * |precommit|`lint`, `test`, `flow` or `typescript`, `nsp`|
+ * |other|`flow` or `typescript`, `nsp`|
+ *
+ * To avoid redundant execution, `lint` and `test` are not executed in precommit stage because those are executed in `precommit` script
+ * already.
+ *
+ * @property [0] If provided vomma separated list of npm script names to run.
+ * @example
+ * $ npm run validate my-custom-validator
+ * $ npx moe-scripts validate
+ * $ npx moe-scripts validate my-custom-validator,second-validator
+ */
 import { Project, replaceArgumentName, Executable, Script, ScriptKit } from "script-helper";
 
 const script: Script = function script(project: Project, args: Array<any>, s: ScriptKit) {

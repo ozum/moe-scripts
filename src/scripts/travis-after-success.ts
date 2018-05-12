@@ -1,3 +1,11 @@
+/**
+ * @module travis-after-success
+ * @desc
+ * WIP
+ *
+ * @example
+ * $ npx travis-after-success
+ */
 import { Project, Script, ScriptKit } from "script-helper";
 import path from "path";
 

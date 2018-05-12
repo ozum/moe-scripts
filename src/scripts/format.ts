@@ -1,3 +1,17 @@
+/**
+ * @module format
+ * @desc
+ * Formats project using `prettier`.
+ *
+ * * If no config provided (`--config`, `prettier.config.js` or `prettierrc` in `package.json`) uses builtin configuration provided by this library.
+ * * If no `--ignore-path` parameter provided or no `.prettierignore` file is present uses builtin ignore file provided by this library.
+ *
+ * @property [--no-write] If provided files are not written to disk. (Default is write to disk).
+ * @property [OTHERS]     All CLI options used by related binary. (`prettier`)
+ * @example
+ * $ npm run format
+ * $ npx moe-scripts format
+ */
 import { Project, Script, ScriptKit } from "script-helper";
 import path from "path";
 import yargsParser from "yargs-parser";

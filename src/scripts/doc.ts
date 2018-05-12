@@ -1,3 +1,20 @@
+/**
+ * @module doc
+ * @desc
+ * Generates documentation.
+ *
+ * * Creates or updates `README.md` file from `README.hbs` [handlebars](https://handlebarsjs.com/) template file and
+ * [JSDoc](http://usejsdoc.org/) comments in source files.
+ * * Generates table of contents.
+ * * If no `--configure` parameter is present and no configuration file is available, uses builtin configuration provided by this library.
+ * * If no `--files` parameter given, uses all files recursively in `src` directory.
+ * * If no `--template` parameter given, uses README.hbs` in project root.
+ *
+ * @property [OTHERS]     All CLI options used by related binary. (`jsdoc2md`)
+ * @example
+ * $ npm run build:doc
+ * $ npx moe-scripts doc
+ */
 import { Project, Script, ScriptKit } from "script-helper";
 import fs from "fs";
 import path from "path";

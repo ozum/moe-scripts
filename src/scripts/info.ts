@@ -1,3 +1,11 @@
+/**
+ * @module info
+ * @desc
+ * Displays information about project and this module.
+ *
+ * @example
+ * $ npx moe-scripts info
+ */
 import { Project, Script, ScriptKit } from "script-helper";
 import util from "util";
 

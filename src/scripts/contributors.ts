@@ -1,3 +1,11 @@
+/**
+ * @module contributors
+ * @desc
+ * WIP
+ *
+ * @example
+ * $ npx moe-scripts contributors
+ */
 import { Project, Script, ScriptKit } from "script-helper";
 
 const spawn = require("cross-spawn");

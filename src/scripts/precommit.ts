@@ -1,3 +1,20 @@
+/**
+ * @module precommit
+ * @desc
+ * Script to be executed automatically just before commit. Utilizes [lint-staged](https://github.com/okonet/lint-staged)
+ *
+ * This script is defined in `.huskyrc.js` as required. It is used by `husky` and contains `lint-staged` config.
+ *
+ * * If no config provided (`--config`, `lint-staged.config.js` or `lint-staged` in `package.json`) uses builtin configuration provided by this library.
+ * * Builds README.md and adds it to git
+ * * Executes `lint-staged`.
+ *     * format (If not opted out) and add to git
+ *     * lint
+ *     * test (executes test related to changed files)
+ * * If opted in, executes validation script.
+ *
+ * @property [OTHERS]     All CLI options used by related binary. (`prettier`)
+ */
 import { Project, Script, ScriptKit } from "script-helper";
 import path from "path";
 

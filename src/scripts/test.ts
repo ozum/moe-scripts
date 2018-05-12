@@ -1,3 +1,18 @@
+/**
+ * @module test
+ * @desc
+ * Test project using [Jest](https://facebook.github.io/jest/)
+ *
+ * * Sets `BABEL_ENV` and `NODE_ENV` to `test`.
+ * * If not in CI, precommit stage, or following arguments are not present `--no-watch`, `--coverage`, `--updateSnapshot` or `--watchAll`, watches changes.
+ * * If no config provided (`--config`, `jest.config.js` etc.) uses builtin configuration provided by this library.
+ *
+ * @property [--no-watch] If provided, works once. (Default is watch mode)
+ * @property [OTHERS]     All CLI options used by related binary. (`jest`)
+ * @example
+ * $ npm run test
+ * $ npx moe-scripts test
+ */
 import { Project, Script, ScriptKit } from "script-helper";
 import path from "path";
 import isCI from "is-ci";
