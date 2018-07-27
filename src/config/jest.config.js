@@ -14,7 +14,7 @@ const jestConfig = {
   collectCoverageFrom: ["src/**/*.+(js|jsx|ts|tsx)"],
   testMatch: ["**/__tests__/**/*.+(js|jsx|ts|tsx)", "**/*.(test|spec).(js|jsx|ts|tsx)"],
   testPathIgnorePatterns: [...ignores],
-  coveragePathIgnorePatterns: [...ignores, "src/(umd|cjs|esm)-entry.js$", "/src/cli/"], // Exclude CLI, because CLI cannot be instrumented by JEST as of 22
+  coveragePathIgnorePatterns: [...ignores, "src/(umd|cjs|esm)-entry.js$", "/src/bin/"], // Exclude CLI files located in bin, because cli cannot be instrumented by JEST as of 22
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
   watchPathIgnorePatterns: [...ignores],
   coverageThreshold: {
