@@ -20,11 +20,12 @@ import fs from "fs";
 import path from "path";
 
 const script: Script = function script(project: Project, args: Array<any>, s: ScriptKit) {
+  const dir = project.isCompiled ? "src" : "lib";
   const extension = project.isTypeScript ? "ts" : "js";
   const useBuiltinConfig = !args.includes("--configure") && !project.hasFileSync(".jsdoc2md.json") && !project.package.has("jsdoc2md");
   const builtinConfigFile = project.fromConfigDir(`jsdoc2md/${extension}.json`);
 
-  const files = !args.includes("--files") ? ["--files", `src/**/*.${extension}`] : [];
+  const files = !args.includes("--files") ? ["--files", `${dir}/**/*.${extension}`] : [];
   const config = useBuiltinConfig ? ["--configure", builtinConfigFile] : [];
   const template = !args.includes("--template") || project.hasFileSync("README.hbs") ? ["--template", "README.hbs"] : [];
 
