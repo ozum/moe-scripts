@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.24"></a>
+## [0.1.24](https://github.com/ozum/moe-scripts/compare/v0.1.23...v0.1.24) (2018-07-31)
+
+
+### Bug Fixes
+
+* make build:doc non-compile compatible ([7de5339](https://github.com/ozum/moe-scripts/commit/7de5339))
+
+
+
 <a name="0.1.23"></a>
 ## [0.1.23](https://github.com/ozum/moe-scripts/compare/v0.1.22...v0.1.23) (2018-07-31)
 
