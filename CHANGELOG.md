@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.23"></a>
+## [0.1.23](https://github.com/ozum/moe-scripts/compare/v0.1.22...v0.1.23) (2018-07-31)
+
+
+### Bug Fixes
+
+* rename babel-macros in .babelrc to babel-plugin-macros ([4c0a266](https://github.com/ozum/moe-scripts/commit/4c0a266))
+
+
+
 <a name="0.1.22"></a>
 ## [0.1.22](https://github.com/ozum/moe-scripts/compare/v0.1.21...v0.1.22) (2018-07-27)
 
