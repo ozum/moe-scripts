@@ -63,6 +63,8 @@ import fs from "fs-extra";
 import path from "path";
 import yargsParser from "yargs-parser";
 import handlebars from "handlebars";
+const eslint = require("../config/eslintrc"); // const project = require("../project"); olan dosyadan inherit etmek vscode ile eslint2in çalışmasını engelliyor, doğrudan dosyayı yaz.
+
 const getLicense = require("../config/license");
 
 const preInstall: Script = function preInstall(project: Project, rawArgs: Array<any>, s: ScriptKit) {
@@ -145,7 +147,8 @@ const init: Script = function init(project: Project, rawArgs: Array<any>, s: Scr
   if (project.isTypeScript) {
     project.writeFileSync("tslint.json", { extends: `${project.moduleName}/tslint.json` }, { serialize: true, format: "json" });
   } else {
-    project.writeFileSync(".eslintrc", { extends: `./node_modules/${project.moduleName}/eslint.js` }, { serialize: true, format: "json" });
+    project.writeFileSync(".eslintrc", eslint, { serialize: true, format: "json" }); // const project = require("../project"); olan dosyadan inherit etmek vscode ile eslint2in çalışmasını engelliyor, doğrudan dosyayı yaz.
+    //project.writeFileSync(".eslintrc", { extends: `./node_modules/${project.moduleName}/eslint.js` }, { serialize: true, format: "json" });
   }
 
   // compiler
