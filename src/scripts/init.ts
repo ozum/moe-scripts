@@ -78,7 +78,6 @@ const init: Script = function init(project: Project, rawArgs: Array<any>, s: Scr
   }
 
   project.resetSync();
-  const gitignoreFile = project.isCompiled ? "compiled" : "non-compiled";
   const forceTestScript = project.package.get("scripts.test") && project.package.get("scripts.test").match("no test specified");
   const scripts = {
     // FASTER Bash Only: "f() { P=$1; P=${P/src/lib}; P=${P/.ts/.js}; tsc-watch --onSuccess \"node -r source-map-support/register ${P}\"; }; f";
@@ -128,7 +127,7 @@ const init: Script = function init(project: Project, rawArgs: Array<any>, s: Scr
 
   project.writeFileSync(".env.sample", "# Description\n# VAR='value'\n");
   project.createSymLinkSync("lib/config/npmignore", ".npmignore");
-  project.createSymLinkSync(`lib/config/gitignore/${gitignoreFile}`, ".gitignore");
+  project.createSymLinkSync(`lib/config/gitignore/${project.isCompiled ? "compiled" : "non-compiled"}`, ".gitignore");
   project.createSymLinkSync("lib/config/gitattributes", ".gitattributes");
   project.copyFileSync("lib/config/changelog.md", "CHANGELOG.md", { track: false });
   project.copyFileSync("lib/config/editorconfig", ".editorconfig");
