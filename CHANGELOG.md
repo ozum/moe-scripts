@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.26"></a>
+## [0.1.26](https://github.com/ozum/moe-scripts/compare/v0.1.25...v0.1.26) (2018-08-01)
+
+
+### Bug Fixes
+
+* write .eslintrc directly ([d481639](https://github.com/ozum/moe-scripts/commit/d481639))
+
+
+
 <a name="0.1.25"></a>
 ## [0.1.25](https://github.com/ozum/moe-scripts/compare/v0.1.24...v0.1.25) (2018-08-01)
 
