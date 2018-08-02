@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.27"></a>
+## [0.1.27](https://github.com/ozum/moe-scripts/compare/v0.1.26...v0.1.27) (2018-08-02)
+
+
+### Bug Fixes
+
+* add eslint ignore to commitlint.config.js ([f1ebf11](https://github.com/ozum/moe-scripts/commit/f1ebf11))
+
+
+
 <a name="0.1.26"></a>
 ## [0.1.26](https://github.com/ozum/moe-scripts/compare/v0.1.25...v0.1.26) (2018-08-01)
 

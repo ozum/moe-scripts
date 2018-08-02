@@ -1,6 +1,6 @@
 {
   "name": "moe-scripts",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "description": "CLI toolbox for common scripts for JavaScript / TypeScript projects",
   "engines": {
     "node": ">= 9",
