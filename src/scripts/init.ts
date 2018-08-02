@@ -141,7 +141,10 @@ const init: Script = function init(project: Project, rawArgs: Array<any>, s: Scr
   project.writeFileSync(".prettierrc.js", `module.exports = require("${project.moduleName}/prettier");\n`);
   project.createSymLinkSync(`lib/config/prettierignore/${project.isCompiled ? "compiled" : "non-compiled"}`, ".prettierignore");
   project.writeFileSync(".huskyrc.js", `module.exports = require("${project.moduleName}/husky");\n`);
-  project.writeFileSync("commitlint.config.js", `module.exports = require("${project.moduleName}/commitlint");\n`);
+  project.writeFileSync(
+    "commitlint.config.js",
+    `module.exports = require("${project.moduleName}/commitlint"); // eslint-disable-line import/no-extraneous-dependencies\n`,
+  );
 
   // lint
   if (project.isTypeScript) {
