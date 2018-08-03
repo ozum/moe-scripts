@@ -85,15 +85,20 @@ const init: Script = function init(project: Project, rawArgs: Array<any>, s: Scr
     // FASTER Bash Only: "f() { P=$1; P=${P/src/lib}; P=${P/.ts/.js}; tsc-watch --onSuccess \"node -r source-map-support/register ${P}\"; }; f";
     // SLOWER Cross Compatible: "nodemon --watch src --exec ts-node --";
     // For BABEL, consider BABEL-WATCH fro faster scripts
-    file: project.isTypeScript
-      ? 'f() { P=$1; P=${P/src/lib}; P=${P/.ts/.js}; tsc-watch --onSuccess "node -r source-map-support/register ${P}"; }; f' // eslint-disable-line
-      : "nodemon --exec babel-node --",
+    file: project.isCompiled
+      ? project.isTypeScript
+        ? 'f() { P=$1; P=${P/src/lib}; P=${P/.ts/.js}; tsc-watch --onSuccess "node -r source-map-support/register ${P}"; }; f' // eslint-disable-line
+        : "nodemon --exec babel-node --"
+      : "nodemon --",
 
     // TS Watch için: "concurrently 'npm run build -- --watch' 'npm run test -- --watch' | awk '{gsub(/\\033c/,\"\") system(\"\")}1'" // Prevents tsc --watch clear.
     // After TypeScript 2.8: "concurrently 'npm run build -- --watch --preserveWatchOutput' 'npm run test -- --watch'"
-    watch: project.isTypeScript
-      ? "concurrently 'npm run build -- --watch' 'npm run test -- --watch' | awk '{gsub(/\\033c/,\"\") system(\"\")}1'"
-      : "concurrently 'npm run build -- --watch' 'npm run test -- --watch",
+    watch: project.isCompiled
+      ? project.isTypeScript
+        ? "concurrently 'npm run build -- --watch' 'npm run test -- --watch' | awk '{gsub(/\\033c/,\"\") system(\"\")}1'"
+        : "concurrently 'npm run build -- --watch' 'npm run test -- --watch"
+      : "npm run test -- --watch",
+
     squash: "BRANCH=`git rev-parse --abbrev-ref HEAD` && git checkout master && git merge --squash $BRANCH && npm run commit",
     release: "git checkout master && git pull origin master && standard-version && git push --follow-tags origin master && npm publish",
     build: `${project.moduleBin} build${project.isTypeScript ? "" : " --source-maps"}`,
@@ -110,7 +115,6 @@ const init: Script = function init(project: Project, rawArgs: Array<any>, s: Scr
     .set("files", project.isCompiled ? ["lib", "bin", "@types"] : ["lib"])
     .set("scripts.file", scripts.file)
     .set("scripts.watch", scripts.watch)
-    .set("scripts.build", scripts.build)
     .set("scripts.build:doc", `${project.moduleBin} doc --no-cache`)
     .set("scripts.test", `${project.moduleBin} test`, { force: forceTestScript })
     .set("scripts.test:update", `${project.moduleBin} test --updateSnapshot`)
@@ -118,9 +122,12 @@ const init: Script = function init(project: Project, rawArgs: Array<any>, s: Scr
     .set("scripts.format", `${project.moduleBin} format`)
     .set("scripts.validate", `${project.moduleBin} validate`)
     .set("scripts.commit", `${project.moduleBin} commit`)
-    .set("scripts.prepublishOnly", "npm run build")
     .set("scripts.squash", scripts.squash)
     .set("scripts.release", scripts.release);
+
+  if (project.isCompiled) {
+    project.package.set("scripts.build", scripts.build).set("scripts.prepublishOnly", "npm run build");
+  }
 
   // It is not necessary to create symlink of module directories using createModuleSymLink("tslint"), because npm installs modules as a flat list,
   // so they are directly in node_modules of project: @types/jest, @types/node, prettier, ts-jest, eslint, tslint
